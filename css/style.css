@@ -29,12 +29,6 @@ html, body {
     z-index: -2;
 }
 
-@media (max-width: 767px) {
-    #particles-js {
-        display: none !important;
-    }
-}
-
 
 /* Прыгающие буквы (Bouncing Letters) */
 .bouncing-letters {
@@ -391,8 +385,11 @@ body.dark .bg-number { -webkit-text-stroke: 2px #334155; }
 }
 
 /* --- ТЕМНАЯ ТЕМА --- */
-html.dark, body.dark {
+html.dark {
     background-color: #0f172a !important;
+}
+body.dark {
+    background-color: transparent !important;
     color: #e2e8f0 !important;
 }
 body.dark .bg-white, body.dark .bg-white\/80, body.dark .bg-white\/90, body.dark .bg-white\/95 { background-color: rgba(30, 41, 59, 0.9) !important; border-color: rgba(255,255,255,0.05) !important; }

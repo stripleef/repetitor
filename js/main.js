@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "color": { "value": ["#d8b4fe", "#fbcfe8", "#c7d2fe"] },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.6, "random": false },
-                "size": { "value": 4, "random": true }, // Сделали крупнее
-                "line_linked": { "enable": true, "distance": 180, "color": "#cbd5e1", "opacity": 0.6, "width": 1.5 },
+                "size": { "value": window.innerWidth < 768 ? 8 : 4, "random": true },
+                "line_linked": { "enable": true, "distance": 180, "color": "#cbd5e1", "opacity": 0.6, "width": window.innerWidth < 768 ? 3 : 1.5 },
                 "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "push": { "particles_nb": 4 }
                 }
             },
-            "retina_detect": true
+            "retina_detect": window.innerWidth > 768
         });
     }
 
