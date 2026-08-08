@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Репетитор Валерия | Математика и Русский язык</title>
+    <meta name="description" content="Профессиональный репетитор Валерия. Индивидуальные занятия и мини-группы по математике и русскому языку. Подготовка к ОГЭ, повышение успеваемости.">
+    <meta name="keywords" content="репетитор, математика, русский язык, ОГЭ, подготовка к экзаменам, репетитор онлайн, занятия, обучение">
+    
+    <!-- Open Graph (Для красивых ссылок в Telegram, VK, WhatsApp) -->
+    <meta property="og:title" content="Репетитор Валерия | Математика и Русский язык">
+    <meta property="og:description" content="Профессиональная подготовка к ОГЭ и повышение успеваемости. Индивидуальный подход и видимый результат!">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="text-gray-800 font-sans antialiased relative overflow-x-hidden" style="background-color: #fafaf9; transition: background-color 0.3s ease;">
+
+    <!-- Интерактивный фон -->
+    <div id="particles-js"></div>
+
+    <!-- Навигация (Glass Nav) -->
+    <nav class="fixed w-full top-6 z-50 flex justify-center px-4 transition-all duration-300">
+        <div
+            class="pill-nav flex justify-between items-center w-full max-w-6xl px-8 py-4 bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(31,38,135,0.07)] rounded-[2rem]">
+            <!-- Прыгающие буквы -->
+            <a href="#home" class="text-3xl font-black text-gray-900 tracking-tight" id="bouncing-logo">
+                Валерия
+            </a>
+
+            <ul class="hidden md:flex space-x-12 text-sm font-bold uppercase tracking-wider items-center">
+                <li><a href="#about" class="nav-link relative text-pink-500 hover:text-pink-600 transition duration-300">Обо мне</a>
+                </li>
+                <li><a href="#methodology"
+                        class="nav-link relative text-purple-500 hover:text-purple-600 transition duration-300">Методика</a></li>
+                <li><a href="#subjects"
+                        class="nav-link relative text-blue-500 hover:text-blue-600 transition duration-300">Направления</a></li>
+                <li><a href="#roadmap" class="nav-link relative text-teal-500 hover:text-teal-600 transition duration-300">Путь</a>
+                </li>
+                <li><a href="#reviews" class="nav-link relative text-rose-500 hover:text-rose-600 transition duration-300">Отзывы</a>
+                </li>
+                <li><a href="#formats" class="nav-link relative text-orange-500 hover:text-orange-600 transition duration-300">Цены</a>
+                </li>
+                <li>
+                    <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center hover:bg-gray-200 transition-colors shadow-inner ml-2">
+                        <i class="fas fa-moon text-gray-600" id="theme-icon"></i>
+                    </button>
+                </li>
+            </ul>
+
+            <button class="md:hidden text-gray-600 hover:text-indigo-500 focus:outline-none ml-4 flex items-center gap-3">
+                <i class="fas fa-moon" onclick="toggleDarkMode(); event.stopPropagation();"></i>
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Главный экран (Hero) -->
+    <header id="home" class="min-h-[90vh] flex items-center justify-center pt-20 pb-8 relative z-10">
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-y-6 lg:gap-x-16 items-center max-w-6xl">
+            
+            <!-- Блок 1: Бейдж и Заголовок (Слева сверху на ПК, Первый на телефоне) -->
+            <div class="order-1 lg:order-none lg:self-end hero-text-top">
+                <div
+                    class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white text-indigo-600 font-bold text-sm mb-6 shadow-sm border border-gray-100">
+                    <i class="fas fa-star text-yellow-400"></i> Инновационный подход к обучению
+                </div>
+                <h1 class="text-4xl md:text-7xl font-black mb-4 lg:mb-0 leading-[1.1]">
+                    <span class="text-gray-900 block mb-1">Ваш путь к</span>
+                    <span class="text-pink-gradient block mb-1 text-5xl md:text-8xl">знаниям</span>
+                    <span class="text-blue-gradient block text-4xl md:text-7xl tracking-tight">начинается здесь</span>
+                </h1>
+            </div>
+
+            <!-- Блок 2: Фотография (Справа на ПК, Посередине на телефоне) -->
+            <div class="order-2 lg:order-none lg:row-span-2 w-3/4 max-w-[280px] lg:max-w-md mx-auto flex justify-center relative hero-image mb-4 lg:mb-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-300 to-indigo-300 rounded-[3rem] blur-xl lg:blur-2xl opacity-40 animate-pulse"></div>
+                <div class="flip-card w-full relative z-10 cursor-pointer group" onclick="this.classList.toggle('flipped'); photoClick(event)">
+                    <div class="flip-card-inner h-[320px] md:h-[450px] lg:h-[550px]">
+                        <!-- Фронтальная сторона -->
+                        <div class="flip-card-front rounded-[2.5rem] border-[6px] lg:border-[8px] border-white shadow-xl lg:shadow-2xl overflow-hidden bg-white h-full w-full">
+                            <img src="assets/photo_2026-07-18_14-46-00.jpg" alt="Валерия" class="w-full h-full object-cover block group-hover:scale-105 transition-transform duration-700">
+                            <!-- Небольшой бейдж поверх фото -->
+                            <div class="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 bg-white/95 backdrop-blur-md px-3 py-2 lg:px-5 lg:py-3 rounded-2xl shadow-xl font-black text-indigo-600 text-xs lg:text-base flex items-center gap-2 lg:gap-3 border border-white/50 group-hover:bg-indigo-50 transition-colors pointer-events-none">
+                                <i class="fas fa-hand-pointer text-pink-500 animate-bounce text-xl"></i> Нажми на меня!
+                            </div>
+                        </div>
+                        <!-- Обратная сторона -->
+                        <div class="flip-card-back rounded-[2.5rem] flex flex-col items-center justify-center p-8 bg-gradient-to-br from-pink-400 to-indigo-500 shadow-2xl border-[8px] border-white h-full w-full">
+                            <div class="text-center">
+                                <i class="fas fa-heart text-6xl text-white mb-6 animate-pulse"></i>
+                                <h3 class="text-4xl font-black text-white leading-tight">Жду тебя <br> на занятии!</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 3: Текст и Кнопки (Слева снизу на ПК, Третий на телефоне) -->
+            <div class="order-3 lg:order-none lg:self-start hero-text-bottom lg:-mt-4">
+                <p class="text-lg md:text-xl mb-8 text-gray-500 leading-relaxed max-w-lg">
+                    Профессиональные курсы по математике и русскому языку для школьников до 9 класса. Обучение с душой,
+                    вниманием к деталям и фокусом на реальный прогресс.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="#contact"
+                        class="magnetic bg-gradient-to-r from-pink-500 to-indigo-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-bold inline-block">
+                        Записаться на занятие
+                    </a>
+                    <a href="#about"
+                        class="magnetic bg-white text-gray-800 px-6 py-3 md:px-8 md:py-4 rounded-full hover:bg-gray-50 transition-all duration-300 font-bold border border-gray-200 shadow-sm inline-block">
+                        Узнать больше
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Обо мне (Текст, Видео и Карточки) -->
+    <section id="about" class="py-12 lg:py-24 relative z-10">
+        <!-- Декоративные пятна -->
+        <div
+            class="absolute top-0 left-0 w-96 h-96 bg-purple-300 rounded-full blur-[100px] opacity-30 -z-10 animate-pulse">
+        </div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-pink-300 rounded-full blur-[100px] opacity-30 -z-10 animate-pulse"
+            style="animation-delay: 2s;"></div>
+
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16 relative">
+                <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-500 mb-6">Обо мне</h2>
+                <i class="fas fa-sparkles absolute top-0 text-yellow-400 text-3xl animate-bounce"
+                    style="right: 35%;"></i>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 mb-12 lg:mb-20">
+                <!-- Видео -->
+                <div class="reveal lg:w-1/2 w-full flex justify-center tilt-card relative mb-4 lg:mb-0">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-[3rem] blur-xl opacity-30">
+                    </div>
+                    <div
+                        class="relative w-3/4 max-w-[240px] lg:w-full lg:max-w-sm rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-xl lg:shadow-2xl border-[6px] lg:border-[8px] border-white/80 bg-white aspect-[3/4] z-10">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <source src="assets/privet.mp4" type="video/mp4">
+                        </video>
+                        <!-- Декоративные элементы на видео -->
+                        <button onclick="spawnHearts(event)"
+                            class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white cursor-pointer active:scale-95 transition-transform">
+                            <p
+                                class="font-bold text-gray-900 text-sm flex items-center justify-center gap-2 pointer-events-none">
+                                <span
+                                    class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-pink-500"><i
+                                        class="fas fa-heart"></i></span>
+                                Обучение с душой!
+                            </p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Текст -->
+                <div class="reveal lg:w-1/2 w-full text-left relative z-10" style="transition-delay: 0.2s">
+                    <div
+                        class="bg-white/80 backdrop-blur-xl p-6 lg:p-12 rounded-[2rem] lg:rounded-[2.5rem] shadow-[0_20px_50px_rgba(8,-112,184,0.07)] border border-white relative overflow-hidden">
+                        <!-- Декоративный 3D элемент -->
+                        <div
+                            class="absolute -top-10 -right-10 w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full blur-3xl opacity-20">
+                        </div>
+
+                        <p class="text-2xl lg:text-3xl font-black text-gray-900 leading-tight mb-6 lg:mb-8">
+                            Привет! Я <span class="text-pink-gradient">Валерия</span>,<br>ваш репетитор по русскому и
+                            математике.
+                        </p>
+
+                        <div
+                            class="flex items-start gap-4 mb-6 lg:mb-8 bg-indigo-50/50 p-5 lg:p-6 rounded-2xl border border-indigo-100/50">
+                            <div
+                                class="w-12 h-12 shrink-0 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-500 text-xl">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium mt-1">
+                                Около 5 лет я помогаю школьникам с 1 по 9 класс. От первых шагов в учебе до уверенной
+                                сдачи ОГЭ на высокие баллы.
+                            </p>
+                        </div>
+
+                        <div class="h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent my-8">
+                        </div>
+
+                        <p class="text-xl text-gray-600 leading-relaxed font-medium">
+                            Моя суперсила — <span
+                                class="px-2 py-1 bg-pink-100 text-pink-600 rounded-lg font-bold inline-block rotate-1 shadow-sm">индивидуальный
+                                подход</span>.
+                            Мы не зубрим скучные правила, а разбираемся в сути. Я объясняю всё на понятных примерах,
+                            подстраиваюсь под ваш темп, а родители всегда в курсе успехов!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Методика (Как проходят занятия) ВМЕСТО 4 КАРТОЧЕК -->
+            <div id="methodology" class="max-w-6xl mx-auto mt-8 pt-8 lg:mt-12 lg:pt-12 border-t border-gray-100/50 relative z-10">
+                <div class="mb-10 text-center">
+                    <span class="text-pink-500 font-bold uppercase tracking-wider text-sm mb-2 block">Методика</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">Как проходят наши занятия</h2>
+                </div>
+
+                <div class="methodology-grid">
+                    <div class="reveal methodology-item" style="transition-delay: 0.1s">
+                        <div class="methodology-number">01</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Бесплатное знакомство</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Созваниваемся, обсуждаем цель и текущий
+                            уровень. Вы понимаете, комфортно ли вам со мной.</p>
+                    </div>
+                    <div class="methodology-item">
+                        <div class="methodology-number">02</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Личный план</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Составляю индивидуальную программу под вашу
+                            цель, темп и дедлайны.</p>
+                    </div>
+                    <div class="methodology-item">
+                        <div class="methodology-number">03</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Занятия без стресса</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Учимся в спокойном ритме: разбираем суть, а не
+                            зубрим. Онлайн или очно.</p>
+                    </div>
+                    <div class="methodology-item">
+                        <div class="methodology-number">04</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Виден прогресс</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Регулярная обратная связь, отчёты родителям и
+                            заметный результат уже в первый месяц.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Направления (Предметы) -->
+    <section id="subjects" class="py-12 lg:py-24 relative z-10">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl md:text-5xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500 mb-10 lg:mb-16">Направления подготовки</h2>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Математика -->
+                <div class="subject-card subject-card-math group bg-white rounded-[1.5rem] lg:rounded-[2rem] p-6 lg:p-10 border border-gray-100 shadow-sm relative overflow-hidden">
+                    <div class="bg-number">01</div>
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-pink-50 rounded-full blur-2xl z-0"></div>
+                    <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-500 text-2xl mb-6 relative z-10">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-4 relative z-10">Математика</h3>
+                    <p class="text-gray-600 mb-8 relative z-10">Мы не заучиваем формулы, а понимаем их суть. Разбираем
+                        сложные темы на простых жизненных примерах.</p>
+                    <ul class="space-y-4 text-gray-700 font-medium relative z-10">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-pink-500 mt-1"></i>
+                            <span>Подготовка к ОГЭ и контрольным</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-pink-500 mt-1"></i>
+                            <span>Устранение пробелов с 1 по 9 класс</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-pink-500 mt-1"></i>
+                            <span>Развитие логического мышления</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-pink-500 mt-1"></i>
+                            <span>Помощь с выполнением домашних заданий</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-pink-500 mt-1"></i>
+                            <span>Разбор олимпиадных задач и алгоритмов</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-pink-500 mt-1"></i>
+                            <span>Уверенность в решении сложных уравнений</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Русский язык -->
+                <div class="subject-card subject-card-rus group bg-white rounded-[2rem] p-10 border border-gray-100 shadow-sm relative overflow-hidden">
+                    <div class="bg-number">02</div>
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-indigo-50 rounded-full blur-2xl z-0"></div>
+                    <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-500 text-2xl mb-6 relative z-10">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-4 relative z-10">Русский язык</h3>
+                    <p class="text-gray-600 mb-8 relative z-10">Правила легко запоминаются через ассоциации и практику.
+                        Писать грамотно — это привычка, которую мы выработаем.</p>
+                    <ul class="space-y-4 text-gray-700 font-medium relative z-10">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-indigo-500 mt-1"></i>
+                            <span>Подготовка к ОГЭ (сочинения, изложения)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-indigo-500 mt-1"></i>
+                            <span>Разбор орфографии и пунктуации</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-indigo-500 mt-1"></i>
+                            <span>Повышение успеваемости в школе</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-indigo-500 mt-1"></i>
+                            <span>Развитие богатой устной и письменной речи</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-indigo-500 mt-1"></i>
+                            <span>Изучение правил без зубрежки</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check text-indigo-500 mt-1"></i>
+                            <span>Написание идеальных сочинений-рассуждений</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap (Путь ученика с линией прогресса) -->
+    <section id="roadmap" class="py-12 lg:py-24 relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-20">Путь к успеху</h2>
+
+            <div class="roadmap-container max-w-4xl mx-auto">
+                <div class="roadmap-line-bg"></div>
+                <div class="roadmap-line-fill"></div>
+
+                <div class="timeline-item relative flex flex-col md:flex-row items-center justify-between mb-16 lg:mb-24">
+                    <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-10 mb-4 md:mb-0 w-full pl-8 md:pl-0">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Знакомство и диагностика</h3>
+                        <p class="text-gray-600">Определяем текущий уровень знаний, находим пробелы и ставим четкие
+                            цели.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="md:w-5/12 hidden md:block"></div>
+                </div>
+
+                <div class="timeline-item relative flex flex-col md:flex-row items-center justify-between mb-16 lg:mb-24">
+                    <div class="md:w-5/12 hidden md:block"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="md:w-5/12 text-left pl-8 md:pl-10 w-full">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Персональный план</h3>
+                        <p class="text-gray-600">Составляем индивидуальную программу обучения, подстраиваясь под темп
+                            ученика.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item relative flex flex-col md:flex-row items-center justify-between mb-16 lg:mb-24">
+                    <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-10 mb-4 md:mb-0 w-full pl-8 md:pl-0">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Интерактивные занятия</h3>
+                        <p class="text-gray-600">Разбираем теорию на понятных примерах, много практикуемся и учимся не
+                            бояться ошибок.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="md:w-5/12 hidden md:block"></div>
+                </div>
+
+                <div class="timeline-item relative flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-5/12 hidden md:block"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="md:w-5/12 text-left pl-8 md:pl-10 w-full">
+                        <h3 class="text-2xl font-bold text-indigo-600 mb-2">Реальный результат</h3>
+                        <p class="text-gray-600">Пятерки за контрольные, успешно сданный ОГЭ и уверенность в собственных
+                            силах!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Микро-Квиз -->
+    <section class="py-8 lg:py-16 relative z-10">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="bg-white rounded-[2rem] p-6 lg:p-10 text-center shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-black text-gray-900 mb-2"><i class="fas fa-gamepad text-indigo-500 mr-2"></i>
+                    Проверь себя (Мини-игра)</h3>
+                <p class="text-gray-500 mb-8">Ответьте на 3 вопроса правильно!</p>
+
+                <p id="quiz-question"
+                    class="text-xl text-gray-800 font-bold mb-8 h-12 flex items-center justify-center"></p>
+
+                <div id="quiz-buttons" class="flex flex-col md:flex-row justify-center gap-4">
+                    <button id="quiz-btn-0"
+                        class="glass px-8 py-4 rounded-xl font-bold text-lg text-gray-700 hover:bg-gray-50 transition-all"></button>
+                    <button id="quiz-btn-1"
+                        class="glass px-8 py-4 rounded-xl font-bold text-lg text-gray-700 hover:bg-gray-50 transition-all"></button>
+                </div>
+
+                <div id="quiz-result" class="mt-6 font-bold hidden"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Форматы и Цены -->
+    <section id="formats" class="py-12 lg:py-24 relative z-10 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10 lg:mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500 mb-4">Форматы и Стоимость</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+
+                <!-- Индивидуально -->
+                <div class="reveal format-ind bg-white rounded-[1.5rem] lg:rounded-3xl p-6 lg:p-8 border border-gray-100 shadow-sm tilt-card flex flex-col relative overflow-hidden group">
+                    <div class="bg-number">01</div>
+                    <span class="relative z-10 bg-pink-50 text-pink-600 font-bold px-4 py-1 rounded-full text-sm self-start mb-4 lg:mb-6 border border-pink-100">Популярное</span>
+                    <h3 class="relative z-10 text-2xl lg:text-3xl font-black text-gray-900 mb-2">Индивидуально</h3>
+                    <p class="relative z-10 text-gray-500 mb-4 lg:mb-6">60 минут чистого внимания</p>
+                    <div class="relative z-10 w-2/3 max-w-[160px] lg:w-3/4 lg:max-w-[200px] mx-auto rounded-[1.5rem] lg:rounded-3xl overflow-hidden mb-6 lg:mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-4 border-white bg-gray-100 flex items-center justify-center aspect-[9/16]">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover pointer-events-none">
+                            <source src="assets/личная.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="text-5xl font-black text-gray-900 mb-8 mt-auto">от 1200 ₽ <span
+                            class="text-lg text-gray-400 font-normal">/ урок</span></div>
+                    <ul class="space-y-4 mb-8 text-gray-600 font-medium">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Максимальное внимание</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Глубокая проработка</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Тщательный разбор сложных тем</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Индивидуальный темп работы</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Персональная поддержка</li>
+                        <li class="flex items-start gap-3 mt-4 pt-4 border-t border-gray-100 text-sm text-gray-500">
+                            <i class="fas fa-info-circle text-gray-400 mt-1"></i> 
+                            <span>Занятия проводятся строго <strong>дистанционно</strong>.</span>
+                        </li>
+                    </ul>
+                    <button onclick="openLeadModal('Индивидуально')"
+                        class="magnetic block w-full text-center bg-gray-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-indigo-600 transition-all duration-300 inline-block">
+                        Выбрать
+                    </button>
+                </div>
+
+                <!-- Группа -->
+                <div class="reveal format-group bg-white rounded-[1.5rem] lg:rounded-3xl p-6 lg:p-8 border border-gray-100 shadow-sm tilt-card flex flex-col relative overflow-hidden group" style="transition-delay: 0.2s">
+                    <div class="bg-number">02</div>
+                    <span class="relative z-10 bg-indigo-50 text-indigo-600 font-bold px-4 py-1 rounded-full text-sm self-start mb-4 lg:mb-6 border border-indigo-100">Выгодно</span>
+                    <h3 class="relative z-10 text-2xl lg:text-3xl font-black text-gray-900 mb-2">Мини-группы</h3>
+                    <p class="relative z-10 text-gray-500 mb-4 lg:mb-6">3–4 человека, 60 минут</p>
+                    <div class="relative z-10 w-2/3 max-w-[160px] lg:w-3/4 lg:max-w-[200px] mx-auto rounded-[1.5rem] lg:rounded-3xl overflow-hidden mb-6 lg:mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-4 border-white bg-gray-100 flex items-center justify-center aspect-[9/16]">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover pointer-events-none">
+                            <source src="assets/gruppa.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="text-5xl font-black text-gray-900 mb-8 mt-auto">от 700 ₽ <span
+                            class="text-lg text-gray-400 font-normal">/ урок</span></div>
+                    <ul class="space-y-4 mb-8 text-gray-600 font-medium">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Комфортный темп и общение</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Здоровая конкуренция</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Мозговые штурмы с командой</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-indigo-500"></i> Взаимопомощь учеников</li>
+                        <li class="flex items-start gap-3 mt-4 pt-4 border-t border-gray-100 text-sm text-gray-500">
+                            <i class="fas fa-info-circle text-gray-400 mt-1"></i> 
+                            <span>Чаще дистанционно, но по запросу родителей возможен <strong>очный формат</strong>.</span>
+                        </li>
+                    </ul>
+                    <button onclick="openLeadModal('Мини-группы')"
+                        class="magnetic block w-full text-center text-gray-900 border-2 border-gray-200 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700 font-bold py-4 rounded-xl transition-all duration-300 inline-block">
+                        Выбрать
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Отзывы (Карусель) -->
+    <section id="reviews" class="py-12 lg:py-24 relative z-10 border-t border-gray-100 overflow-hidden">
+        <div class="container mx-auto px-4 text-center mb-8 lg:mb-12">
+            <h2 class="reveal text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-500 mb-4">Что говорят ученики</h2>
+            <p class="reveal text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto" style="transition-delay: 0.1s">Результаты и эмоции, которые говорят сами за себя.</p>
+        </div>
+        
+        <div id="reviews-slider" class="marquee-container reveal" style="transition-delay: 0.2s">
+            <div class="marquee-track">
+                <!-- Оригинальный набор (1-12) -->
+                <div class="review-card"><img src="assets/отзыв1.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв2.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв3.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв4.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв5.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв6.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв7.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв8.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв9.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв10.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв11.jpg" alt="Отзыв"></div>
+                <div class="review-card"><img src="assets/отзыв12.jpg" alt="Отзыв"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-12 lg:py-24 relative z-10">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl md:text-5xl font-black text-center text-gray-900 mb-8 lg:mb-12">Частые вопросы</h2>
+            <div class="space-y-4">
+                <details class="faq-details bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <summary
+                        class="flex justify-between items-center font-bold p-5 lg:p-6 text-base lg:text-lg text-gray-800 focus:outline-none">
+                        Как записаться на пробное занятие?
+                        <div
+                            class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500 faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <div class="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">
+                                Напишите мне в Telegram или WhatsApp по кнопкам ниже. Я отвечаю быстро, и мы подберем
+                                удобное для вас время.
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <details class="faq-details bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <summary
+                        class="flex justify-between items-center font-bold p-5 lg:p-6 text-base lg:text-lg text-gray-800 focus:outline-none">
+                        Можно ли сменить формат занятий?
+                        <div
+                            class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500 faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <div class="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">
+                                Конечно, мы всегда можем обсудить переход из группы на индивидуальные занятия и
+                                наоборот.
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <details class="faq-details bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <summary
+                        class="flex justify-between items-center font-bold p-5 lg:p-6 text-base lg:text-lg text-gray-800 focus:outline-none">
+                        Задаете ли вы домашнее задание?
+                        <div
+                            class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500 faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <div class="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">
+                                Да, домашнее задание — это важная часть закрепления материала. Но я всегда адаптирую объем под возможности и загруженность ученика.
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <details class="faq-details bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <summary
+                        class="flex justify-between items-center font-bold p-5 lg:p-6 text-base lg:text-lg text-gray-800 focus:outline-none">
+                        Как проходят онлайн-занятия?
+                        <div
+                            class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500 faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <div class="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">
+                                Занятия проходят на интерактивной онлайн-доске с использованием видеосвязи. Ученик видит всё, что я пишу, и сам может писать на доске. Это даже удобнее, чем сидеть рядом!
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <details class="faq-details bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <summary
+                        class="flex justify-between items-center font-bold p-5 lg:p-6 text-base lg:text-lg text-gray-800 focus:outline-none">
+                        Можно ли переносить занятия?
+                        <div
+                            class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500 faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <div class="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">
+                                Да, перенос возможен при предупреждении заранее. Мы всегда стараемся найти компромисс и подобрать удобное время для отработки.
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <footer id="contact" class="py-12 lg:py-24 relative z-10 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-8 lg:mb-10 text-center">Готовы начать?</h2>
+            <div class="grid md:grid-cols-3 gap-4 lg:gap-6 max-w-5xl mx-auto">
+                <!-- Telegram -->
+                <a href="https://t.me/i_m_wasserman" target="_blank"
+                    class="flex flex-col items-center justify-center gap-3 lg:gap-4 bg-white p-6 lg:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group tilt-card">
+                    <div
+                        class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fab fa-telegram-plane text-4xl text-[#0088cc]"></i>
+                    </div>
+                    <span class="text-2xl font-black text-gray-900">Telegram</span>
+                    <span class="text-base text-gray-500">@i_m_wasserman</span>
+                </a>
+
+                <!-- VK -->
+                <a href="https://vk.ru/01vasserman" target="_blank"
+                    class="flex flex-col items-center justify-center gap-3 lg:gap-4 bg-white p-6 lg:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group tilt-card">
+                    <div
+                        class="w-20 h-20 rounded-full bg-[#0077FF]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fab fa-vk text-4xl text-[#0077FF]"></i>
+                    </div>
+                    <span class="text-2xl font-black text-gray-900">ВКонтакте</span>
+                    <span class="text-base text-gray-500">@01vasserman</span>
+                </a>
+
+                <!-- MAX (Blue Icon) -->
+                <a href="https://max.ru/u/f9LHodD0cOJItowp_wsZaxanm_ybagtENCrywS6IjRGa22aMakHJkiu843c" target="_blank"
+                    class="flex flex-col items-center justify-center gap-3 lg:gap-4 bg-white p-6 lg:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group tilt-card">
+                    <div
+                        class="w-20 h-20 rounded-full bg-indigo-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-comment text-4xl text-indigo-500"></i>
+                    </div>
+                    <span class="text-2xl font-black text-gray-900">MAX</span>
+                    <span class="text-base text-gray-500">+7 965 646-83-06</span>
+                </a>
+            </div>
+            <p class="text-center text-sm text-gray-400 mt-16">© 2026 Репетитор Валерия. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Плавающая кнопка связи (FAB) -->
+    <a href="https://wa.me/79656468306" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] transition-all duration-300 z-50 animate-bounce">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <!-- Toast-сообщение для фото -->
+    <div id="toast-message" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-8 py-4 rounded-full font-bold shadow-2xl z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center gap-3">
+        <i class="fas fa-check-circle text-green-400 text-xl"></i> 
+        <span>Жду на уроке!</span>
+    </div>
+
+    <!-- Анимированный Маскот (Иконка) -->
+    <div class="mascot-container hidden">
+        <div class="mascot-speech">Остались вопросы? Пишите!</div>
+        <a href="#contact" class="mascot">
+            <i class="fas fa-comment-dots text-indigo-500 text-3xl"></i>
+        </a>
+    </div>
+
+    <!-- Lightbox (Полноэкранный просмотр отзывов) -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4 cursor-pointer" onclick="closeLightbox(event)">
+        <button onclick="closeLightbox(event)" class="absolute top-6 right-6 text-white hover:text-pink-500 transition-colors z-10">
+            <i class="fas fa-times text-4xl"></i>
+        </button>
+        
+        <button id="lightbox-prev" onclick="prevLightboxImage(event)" class="absolute left-4 md:left-10 text-white/50 hover:text-white transition-colors z-10">
+            <i class="fas fa-chevron-left text-5xl"></i>
+        </button>
+
+        <img id="lightbox-img" src="" alt="Отзыв" class="max-w-[80vw] max-h-[90vh] w-auto h-auto object-contain rounded-2xl shadow-2xl cursor-default" onclick="event.stopPropagation()">
+        
+        <button id="lightbox-next" onclick="nextLightboxImage(event)" class="absolute right-4 md:right-10 text-white/50 hover:text-white transition-colors z-10">
+            <i class="fas fa-chevron-right text-5xl"></i>
+        </button>
+    </div>
+
+    <!-- Модальное окно заявки -->
+    <div id="lead-modal" class="fixed inset-0 z-[100] hidden bg-black/50 backdrop-blur-sm items-center justify-center p-4 opacity-0 transition-opacity duration-300" onclick="closeLeadModal(event)">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative transform scale-95 transition-transform duration-300" id="lead-modal-content" onclick="event.stopPropagation()">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-gray-400 hover:text-pink-500 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <!-- Шаг 1: Форма -->
+            <div id="lead-step-1">
+                <h3 class="text-2xl font-black text-gray-900 mb-2">Запись на занятия</h3>
+                <p class="text-gray-500 mb-6">Формат: <span id="lead-format-text" class="font-bold text-indigo-500">Индивидуально</span></p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Как к вам обращаться?</label>
+                        <input type="text" id="lead-name" placeholder="Ваше имя" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all font-medium text-gray-900">
+                        <p id="lead-name-error" class="text-red-500 text-xs mt-1 hidden">Пожалуйста, введите ваше имя</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Номер телефона или ник</label>
+                        <input type="text" id="lead-contact" placeholder="+7 (999) 000-00-00 или @username" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all font-medium text-gray-900">
+                        <p id="lead-contact-error" class="text-red-500 text-xs mt-1 hidden">Пожалуйста, оставьте контакт для связи</p>
+                    </div>
+                    <button onclick="nextLeadStep()" class="w-full mt-4 bg-gray-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-indigo-600 transition-all duration-300">
+                        Далее <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Шаг 2: Выбор соцсети -->
+            <div id="lead-step-2" class="hidden text-center">
+                <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-2">Отличный выбор!</h3>
+                <p class="text-gray-500 mb-6">Куда вам удобнее отправить заявку?</p>
+                
+                <div class="space-y-3">
+                    <button onclick="submitLead('telegram')" class="w-full flex items-center justify-center gap-3 bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-4 rounded-xl transition-colors">
+                        <i class="fab fa-telegram-plane text-2xl"></i> Telegram
+                    </button>
+                    <button onclick="submitLead('vk')" class="w-full flex items-center justify-center gap-3 bg-[#0077FF]/10 hover:bg-[#0077FF]/20 text-[#0077FF] font-bold py-4 rounded-xl transition-colors">
+                        <i class="fab fa-vk text-2xl"></i> ВКонтакте
+                    </button>
+                    <button onclick="submitLead('max')" class="w-full flex items-center justify-center gap-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold py-4 rounded-xl transition-colors">
+                        <i class="fas fa-comment text-2xl"></i> MAX
+                    </button>
+                </div>
+                <p class="text-xs text-gray-400 mt-4">*Текст заявки будет скопирован автоматически</p>
+            </div>
+        </div>
+
+    <!-- Библиотеки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Кастомный скрипт -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
