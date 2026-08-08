@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "interactivity": {
                 "detect_on": "window",
                 "events": {
-                    "onhover": { "enable": true, "mode": "repulse" },
-                    "onclick": { "enable": true, "mode": "push" },
+                    "onhover": { "enable": false, "mode": "repulse" },
+                    "onclick": { "enable": false, "mode": "push" },
                     "resize": true
                 },
                 "modes": {
@@ -183,12 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(".hero-image", { opacity: 0, scale: 0.8, rotation: 5, duration: 1.5, ease: "back.out(1.7)", delay: 0.4 });
         gsap.from(".floating-badge", { opacity: 0, y: 30, scale: 0.5, duration: 1, stagger: 0.2, ease: "back.out(1.5)", delay: 1 });
 
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.from(section, {
-                scrollTrigger: { trigger: section, start: "top 80%", toggleActions: "play none none none" },
-                opacity: 0, y: 50, scale: 0.98, duration: 1, ease: "power3.out"
+        if (window.innerWidth > 768) {
+            gsap.utils.toArray('section').forEach(section => {
+                gsap.from(section, {
+                    scrollTrigger: { trigger: section, start: "top 80%", toggleActions: "play none none none" },
+                    opacity: 0, y: 50, scale: 0.98, duration: 1, ease: "power3.out"
+                });
             });
-        });
+        }
 
         const counters = document.querySelectorAll('.counter-value');
         counters.forEach(counter => {
