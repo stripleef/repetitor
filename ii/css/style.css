@@ -75,8 +75,6 @@ html, body {
 .flip-card-inner {
     position: relative;
     width: 100%;
-    /* Это очень важно для соотношения сторон фото, иначе высота схлопывается */
-    aspect-ratio: 4 / 5;
     text-align: center;
     transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
     transform-style: preserve-3d;
@@ -398,8 +396,8 @@ body.dark .bg-gray-50, body.dark .bg-gray-100 { background-color: #0f172a !impor
 body.dark .bg-\[\#f8fafc\] { background-color: transparent !important; border-color: transparent !important; }
 body.dark .glass { background-color: rgba(30, 41, 59, 0.8) !important; border-color: rgba(255, 255, 255, 0.1) !important; }
 body.dark .border-gray-100, body.dark .border-gray-200, body.dark .border-white { border-color: #334155 !important; }
-body.dark #particles-js { opacity: 1 !important; z-index: 0 !important; }
-body.dark .particles-js-canvas-el { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.8)) drop-shadow(0 0 15px rgba(236, 72, 153, 0.8)) brightness(2) !important; opacity: 1 !important; z-index: 1 !important; }
+body.dark #particles-js { opacity: 1 !important; }
+body.dark .particles-js-canvas-el { opacity: 1 !important; }
 body.dark .methodology-grid { background-color: #1e293b !important; border-color: #334155 !important; }
 body.dark .methodology-item { border-color: #334155 !important; }
 body.dark .methodology-number { -webkit-text-stroke: 1px #475569; }
@@ -501,14 +499,16 @@ body.dark .review-card {
 }
 
 /* --- Анимации при скролле (Scroll Reveal) --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+@media (min-width: 768px) {
+    .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Магнитные кнопки --- */
